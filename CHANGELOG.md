@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `observe_openai_call` and `observe_anthropic_call` now accept and forward
   host-declared `intent` to `StepEvent`, matching the raw adapter. The default
   remains `None` for existing callers (#773).
+- `WebhookSink` and `ConsoleSink` now include the risk's explicit or derived
+  severity in their JSON payloads (#772).
+- `DiagnosticMetrics.record_timing` rejects negative and non-finite samples
+  before they can corrupt latency percentiles (#774).
 - Release-notes extraction no longer silently publishes the whole `CHANGELOG.md`
   when `VERSION` matches no heading. `RELEASE_NOTES.md` is the GitHub release
   body, and the inline `python -c` step fell back to writing the entire file --
